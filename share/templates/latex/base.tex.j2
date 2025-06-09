@@ -58,10 +58,12 @@ override this.-=))
         \usepackage{unicode-math}
     \fi
 
+    \usepackage{emoji}
+
     \usepackage{fancyvrb} % verbatim replacement that allows latex
     \usepackage{grffile} % extends the file name processing of package graphics
                          % to support a larger range
-    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \makeatletter % fix for old versions of grffile with LuaLaTeX
     \@ifpackagelater{grffile}{2019/11/01}
     {
       % Do nothing on new versions

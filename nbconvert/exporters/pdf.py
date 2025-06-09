@@ -60,7 +60,7 @@ class PDFExporter(LatexExporter):
     latex_count = Integer(3, help="How many times latex will be called.").tag(config=True)
 
     latex_command = List(
-        ["xelatex", "{filename}", "-quiet"], help="Shell command used to compile latex."
+        ["lualatex", "{filename}", "-quiet"], help="Shell command used to compile latex."
     ).tag(config=True)
 
     bib_command = List(["bibtex", "{filename}"], help="Shell command used to run bibtex.").tag(
@@ -158,7 +158,7 @@ class PDFExporter(LatexExporter):
         return True  # success
 
     def run_latex(self, filename, raise_on_failure=LatexFailed):
-        """Run xelatex self.latex_count times."""
+        """Run lualatex self.latex_count times."""
 
         def log_error(command, out):
             self.log.critical("%s failed: %s\n%s", command[0], command, out)

@@ -135,7 +135,7 @@ class TestNbConvertApp(TestsBase):
                 text = f.read()
             assert text == test_output
 
-    @onlyif_cmds_exist("pandoc", "xelatex")
+    @onlyif_cmds_exist("pandoc", "lualatex")
     def test_filename_spaces(self):
         """
         Generate PDFs with graphics if notebooks have spaces in the name?
@@ -161,7 +161,7 @@ class TestNbConvertApp(TestsBase):
             self.nbconvert('--to webpdf --allow-chromium-download "notebook2"')
             assert os.path.isfile("notebook2.pdf")
 
-    @onlyif_cmds_exist("pandoc", "xelatex")
+    @onlyif_cmds_exist("pandoc", "lualatex")
     def test_pdf(self):
         """
         Check to see if pdfs compile, even if strikethroughs are included.
@@ -275,7 +275,7 @@ class TestNbConvertApp(TestsBase):
             self.nbconvert("--log-level 0 --to Python nb1_*")
             assert os.path.isfile("nb1_análisis.py")
 
-    @onlyif_cmds_exist("xelatex", "pandoc")
+    @onlyif_cmds_exist("lualatex", "pandoc")
     def test_filename_accent_pdf(self):
         """
         Generate PDFs if notebooks have an accent in their name?
@@ -480,7 +480,7 @@ class TestNbConvertApp(TestsBase):
                 assert "```python" not in output1  # shouldn't have language
                 assert "```" in output1  # but should have fenced blocks
 
-    @onlyif_cmds_exist("pandoc", "xelatex")
+    @onlyif_cmds_exist("pandoc", "lualatex")
     def test_linked_images(self):
         """
         Generate PDFs with an image linked in a markdown cell

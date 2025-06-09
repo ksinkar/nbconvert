@@ -29,7 +29,7 @@ The `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ and `Miniforge
 .. important::
 
     To unlock its full capabilities, nbconvert requires Pandoc, TeX
-    (specifically, XeLaTeX) and playwright. These must be installed separately.
+    (specifically, LuaLaTeX) and playwright. These must be installed separately.
 
 Installing Pandoc
 -----------------
@@ -96,7 +96,7 @@ If you are only able to install a limited TeX environment, there are two main ro
 1. Using TeX by hand
     a. You could convert to ``.tex`` directly; this requires Pandoc.
     b. edit the file to accord with your local environment
-    c. run ``xelatex`` directly.
+    c. run ``lualatex`` directly.
 2. Custom exporter
     a. You could write a :ref:`custom exporter <external_exporters>`
        that takes your system's limitations into account.

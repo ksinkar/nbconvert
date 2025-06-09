@@ -27,7 +27,7 @@ class TestPDF(ExportersTestsBase):
         """Can a PDFExporter be constructed?"""
         self.exporter_class()  # type:ignore
 
-    @onlyif_cmds_exist("xelatex", "pandoc")
+    @onlyif_cmds_exist("lualatex", "pandoc")
     def test_export(self):
         """Smoke test PDFExporter"""
         with TemporaryDirectory() as td:
@@ -42,7 +42,7 @@ class TestPDF(ExportersTestsBase):
             # all temporary file should be cleaned up
             assert {file_name} == set(os.listdir(td))
 
-    @onlyif_cmds_exist("xelatex", "pandoc")
+    @onlyif_cmds_exist("lualatex", "pandoc")
     def test_texinputs(self):
         """
         Is TEXINPUTS set properly when we are converting
